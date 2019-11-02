@@ -30,3 +30,6 @@
 ### Association
 - belongs_to :tweet
 - belongs_to :user
+## わいのお試しテーブル
+|カラム|タイプ|オプション|
+

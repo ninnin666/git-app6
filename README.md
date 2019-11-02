@@ -31,5 +31,5 @@
 - belongs_to :tweet
 - belongs_to :user
 ## わいのお試しテーブル
-|karamu|taipu|opusyon|
-
+|Karamu|Taipu|Opusyon|
+|----|----|----|

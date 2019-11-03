@@ -1,36 +1,44 @@
-# README
+#DB設計
 
-# Pictweet DB設計
-## usersテーブル
+##messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|email|string|null: false|
-|password|string|null: false|
-|nickname|string|null: false|
-### Association
-- has_many :tweets
-- has_many :comments
+|body|text|null: false|
+|image|string|null: false|
+|group|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
 
-## tweetsテーブル
+###Association
+-belongs_to :group
+-belongs_to :use
+
+##usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|text||
-|text|text||
-|user_id|integer|null: false, foreign_key: true|
-### Association
-- belongs_to :user
-- has_many :comments
+|nickname|string|null: false, unique: true, index: true|
+|email|string|null: false, unique: true|
 
-## commentsテーブル
+###Association
+-has_many :groups, through: :memebers
+-has_many :messages
+-has_many :members
+
+##groupsテーブル
 |Column|Type|Options|
-|------|----|-------|
-|text|text|null: false|
-|user_id|integer|null: false, foreign_key: true|
-|tweet_id|integer|null: false, foreign_key: true|
-### Association
-- belongs_to :tweet
-- belongs_to :user
-## わいのお試しテーブル
-|Karamu|Taipu|Opusyon|
-|------:|:-----:|:-------|
-|なんでも|試さないと|始まんない|
+|groupname|string|null: false, unique:true|
+
+###Association
+-has_many :users, through: :memebers
+-has_many :messages
+-has_many :members
+
+##membersテーブル
+|Column|Type|Options|
+|group|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+
+###Association
+
+-belongs_to :group
+-belongs_to :user
+

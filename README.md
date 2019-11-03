@@ -5,8 +5,8 @@
 ## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|body|text|null: false|
-|image|string|null: false|
+|body|text|-------|
+|image|string|------|
 |group|references|null: false, foreign_key: true|
 |user|references|null: false, foreign_key: true|
 

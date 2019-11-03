@@ -1,10 +1,12 @@
+
+
 # DB設計
 
 ## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|body|text|null: false|
-|image|string|null: false|
+|body|text|-------|
+|image|string|------|
 |group|references|null: false, foreign_key: true|
 |user|references|null: false, foreign_key: true|
 
@@ -26,22 +28,12 @@
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|groupname|string|null: false, unique:true|
+|name|string|null: false, unique:true|
 
 ### Association
 - has_many :users, through: :memebers
 - has_many :messages
 - has_many :members
-
-## groups_usersテーブル
-|Column|Type|Options|
-|------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
-
-### Association
-- belongs_to :group
-- belongs_to :user
 
 ## membersテーブル
 |Column|Type|Options|
@@ -53,4 +45,3 @@
 
 - belongs_to :group
 - belongs_to :user
-

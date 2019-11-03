@@ -28,7 +28,7 @@
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|groupname|string|null: false, unique:true|
+|name|string|null: false, unique:true|
 
 ### Association
 - has_many :users, through: :memebers

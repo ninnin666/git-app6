@@ -25,6 +25,7 @@
 
 ## groupsテーブル
 |Column|Type|Options|
+|------|----|-------|
 |groupname|string|null: false, unique:true|
 
 ### Association
@@ -34,6 +35,7 @@
 
 ## membersテーブル
 |Column|Type|Options|
+|------|----|-------|
 |group|references|null: false, foreign_key: true|
 |user|references|null: false, foreign_key: true|
 
